@@ -5,19 +5,25 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Root from "./routes/root.jsx";
+import Root, { loader as rootLoader } from "./routes/root.jsx";
 import Login, { action as loginAction } from "./routes/login.jsx";
 import Account, { loader as accountLoader } from "./routes/account.jsx";
+import { action as logoutAction } from "./routes/logout.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    loader: rootLoader,
   },
   {
     path: "/login",
     element: <Login />,
     action: loginAction,
+  },
+  {
+    path: "/logout",
+    action: logoutAction,
   },
   {
     path: "/account",

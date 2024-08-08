@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ session }) {
   return (
     <header className="bg-gray-800 py-4 px-6">
       <div className="container mx-auto flex justify-between items-center">
@@ -10,11 +10,26 @@ export default function Header() {
                 Home
               </a>
             </li>
-            <li>
-              <a href="/login" className="text-white hover:text-gray-300">
-                Login
-              </a>
-            </li>
+            {session?.user ? (
+              <>
+                <li>
+                  <a href="/account" className="text-white hover:text-gray-300">
+                    Account
+                  </a>
+                </li>
+                <li>
+                  <a href="/logout" className="text-white hover:text-gray-300">
+                    Logout
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li>
+                <a href="/login" className="text-white hover:text-gray-300">
+                  Login
+                </a>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
