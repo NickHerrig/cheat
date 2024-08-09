@@ -1,5 +1,5 @@
 import { supabase } from "../supabaseClient";
-import { Form, useActionData } from "react-router-dom";
+import { Form, useActionData, useNavigation } from "react-router-dom";
 import Header from "../components/header";
 import { getURL } from "../utils";
 
@@ -22,6 +22,8 @@ export async function action({ request }) {
 
 export default function Login() {
   const actionData = useActionData();
+  const navigation = useNavigation();
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-900">
       <Header />
@@ -48,9 +50,14 @@ export default function Login() {
             <div>
               <button
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                disabled={navigation.state === "submitting"}
+                className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
+                  navigation.state === "submitting"
+                    ? "bg-indigo-400 cursor-not-allowed"
+                    : "bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                }`}
               >
-                Send magic link
+                {navigation.state === "submitting" ? "Sending..." : "Send magic link"}
               </button>
             </div>
             {actionData?.success && (
