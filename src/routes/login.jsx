@@ -9,7 +9,7 @@ export async function action({ request }) {
   const { data, error } = await supabase.auth.signInWithOtp({
     email: email,
     options: {
-      emailRedirectTo: getURL()+"account",
+      emailRedirectTo: getURL() + "account",
     },
   });
 
@@ -43,7 +43,9 @@ export default function Login() {
                 name="email"
                 type="email"
                 required
-                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600 placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-600
+                         placeholder-gray-400 text-white bg-gray-700 focus:outline-none focus:ring-indigo-500 
+                         focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Your email"
               />
             </div>
@@ -57,7 +59,9 @@ export default function Login() {
                     : "bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 }`}
               >
-                {navigation.state === "submitting" ? "Sending..." : "Send magic link"}
+                {navigation.state === "submitting"
+                  ? "Sending..."
+                  : "Send magic link"}
               </button>
             </div>
             {actionData?.success && (

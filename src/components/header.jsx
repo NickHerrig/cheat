@@ -1,3 +1,5 @@
+import { Form } from "react-router-dom";
+
 export default function Header({ session }) {
   return (
     <header className="bg-gray-800 py-4 px-6">
@@ -18,9 +20,11 @@ export default function Header({ session }) {
                   </a>
                 </li>
                 <li>
-                  <a href="/logout" className="text-white hover:text-gray-300">
-                    Logout
-                  </a>
+                  <Form method="post" action="/logout">
+                    <button type="submit" className="text-white hover:text-gray-300">
+                      Logout
+                    </button>
+                  </Form>
                 </li>
               </>
             ) : (
