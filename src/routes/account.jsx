@@ -27,8 +27,6 @@ export default function Account() {
   const user = data.session.user;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
-      <Header session={data.session} />
       <main className="flex-grow flex items-center justify-center">
         <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
           <h1 className="text-3xl font-bold text-white text-center">Account</h1>
@@ -56,6 +54,5 @@ export default function Account() {
           </div>
         </div>
       </main>
-    </div>
   );
 }

@@ -25,8 +25,6 @@ export default function Login() {
   const navigation = useNavigation();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-900">
-      <Header />
       <main className="flex-grow flex items-center justify-center">
         <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
           <div className="text-center">
@@ -74,6 +72,5 @@ export default function Login() {
           </Form>
         </div>
       </main>
-    </div>
   );
 }
